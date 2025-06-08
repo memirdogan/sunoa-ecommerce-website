@@ -40,6 +40,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Campaigns Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-serif mb-8 text-center">Kampanyalar</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="rounded-lg overflow-hidden shadow-md transition-transform hover:scale-[1.02]">
+              <Link href="/products">
+                <div className="relative aspect-square">
+                  <Image
+                    src="/images/discount/ilksiparis.jpeg"
+                    alt="İlk Siparişe Özel İndirim"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 bg-white">
+                  <h3 className="text-xl font-medium">İlk Siparişe Özel İndirim</h3>
+                  <p className="text-gray-600 mt-2">İlk siparişinizde %10 indirim fırsatını kaçırmayın!</p>
+                </div>
+              </Link>
+            </div>
+            <div className="rounded-lg overflow-hidden shadow-md transition-transform hover:scale-[1.02]">
+              <Link href="/products">
+                <div className="relative aspect-square">
+                  <Image
+                    src="/images/discount/yazamerhaba.jpeg"
+                    alt="Yaza Merhaba Kampanyası"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 bg-white">
+                  <h3 className="text-xl font-medium">Yaza Merhaba Kampanyası</h3>
+                  <p className="text-gray-600 mt-2">Yaz sezonu açılışına özel fırsatları keşfedin!</p>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Products Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
