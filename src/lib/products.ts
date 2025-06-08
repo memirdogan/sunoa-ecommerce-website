@@ -224,6 +224,8 @@ export const products: Product[] = [
 
 export const getFeaturedProducts = (): Product[] => {
   return products.filter(product => product.featured);
+};[] => {
+  return products.filter(product => product.featured);
 };
 
 export const getNewArrivals = (): Product[] => {
