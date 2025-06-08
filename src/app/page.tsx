@@ -41,7 +41,7 @@ export default function Home() {
       </section>
 
       {/* Campaigns Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8e8e0]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-serif mb-8 text-center">Kampanyalar</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -82,7 +82,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8e8e0]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-serif mb-8">Öne Çıkan Ürünler</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -102,16 +102,22 @@ export default function Home() {
       </section>
 
       {/* Brand Showcase */}
-      <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#f8e8e0] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-serif mb-12">Sunoa Ürün Serileri</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <h2 className="text-3xl font-sans tracking-wide font-light mb-12">Sunoa Ürün Serileri</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {brands.map((brand) => (
               <div
                 key={brand.id}
-                className="h-20 bg-white rounded-lg shadow-sm flex items-center justify-center p-4"
+                className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
               >
-                <span className="text-xl font-serif">{brand.name}</span>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="h-40 flex flex-col items-center justify-center p-6">
+                  <span className="text-2xl font-sans tracking-wide font-light relative z-10 group-hover:text-white transition-colors duration-300">{brand.name}</span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 p-4 transform translate-y-full group-hover:translate-y-0 transition-all duration-300">
+                  <p className="text-white text-sm">Keşfedin</p>
+                </div>
               </div>
             ))}
           </div>

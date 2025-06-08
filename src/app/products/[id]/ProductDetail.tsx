@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Product } from '@/types';
+import { useCart } from '@/lib/cartContext';
+import ToastNoHydration from '@/components/ui/ToastNoHydration';
 
 interface ProductDetailProps {
   product: Product;
@@ -13,6 +15,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState('description');
   const [quantity, setQuantity] = useState(1);
+  const [toastVisible, setToastVisible] = useState(false);
+  const { addToCart } = useCart();
 
   const incrementQuantity = () => {
     if (product.stock && quantity < product.stock) {
@@ -160,14 +164,29 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </div>
 
             {/* Buy Button */}
-            <div className="pt-6">
+            <div className="pt-6 flex space-x-4">
+              <button
+                onClick={() => {
+                  addToCart(product, quantity);
+                  setToastVisible(true);
+                }}
+                className="flex-1 bg-black text-white px-8 py-4 rounded-md text-center block hover:bg-gray-800 transition-colors"
+              >
+                Sepete Ekle
+              </button>
               <Link
                 href="/products"
-                className="w-full bg-black text-white px-8 py-4 rounded-md text-center block hover:bg-gray-800 transition-colors"
+                className="flex-1 border border-black text-black px-8 py-4 rounded-md text-center block hover:bg-gray-100 transition-colors"
               >
-                Diğer Ürünleri İncele
+                Diğer Ürünler
               </Link>
             </div>
+            
+            <ToastNoHydration 
+              message="Ürün sepete eklendi!" 
+              isVisible={toastVisible} 
+              onClose={() => setToastVisible(false)} 
+            />
 
             {/* Product Tabs */}
             <div className="pt-8 border-t border-gray-200">

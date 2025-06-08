@@ -1,6 +1,7 @@
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { CartProvider } from '@/lib/cartContext';
 
 export const metadata = {
   title: 'Sunoa - Premium Güneş Kremleri',
@@ -63,9 +64,11 @@ export default function RootLayout({
         <meta name="twitter:image" content="/images/logo/sunoa.png" />
       </head>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow pt-16">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main className="flex-grow pt-16">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

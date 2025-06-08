@@ -2,13 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #f5f5dc;
-  --foreground: #171717;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out forwards;
 }

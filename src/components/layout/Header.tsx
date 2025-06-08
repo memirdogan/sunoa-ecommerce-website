@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import CartIcon from '@/components/cart/CartIcon';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,21 +20,22 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           <div className="flex-shrink-0">
             <a href="/" className="flex items-center">
-              <Image src="/images/logo/sunoa.png" alt="Sunoa Logo" width={112} height={112} className="-my-6" priority />
+              <Image src="/images/logo/sunoa.png" alt="Sunoa Logo" width={140} height={140} className="-my-6" priority />
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:space-x-8">
+          <div className="hidden md:flex md:space-x-8 items-center">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-900 hover:text-gray-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-gray-900 hover:text-gray-600 px-3 py-2 text-base font-medium transition-colors"
               >
                 {item.name}
               </a>
             ))}
+            <CartIcon />
           </div>
 
           {/* Mobile Navigation Button */}
@@ -71,6 +73,9 @@ const Header = () => {
                   {item.name}
                 </a>
               ))}
+              <div className="px-3 py-2">
+                <CartIcon />
+              </div>
             </div>
           </div>
         )}
