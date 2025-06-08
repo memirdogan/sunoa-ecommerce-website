@@ -31,7 +31,8 @@ export const products: Product[] = [
     description: 'Yüz cildi için özel formüllü, ince dokulu ve yüksek koruma faktörlü güneş kremi.',
     price: 650,
     images: [
-      '/images/product-images/sunoa-sunscreen-face-cream-spf50-plus.jpeg'
+      '/images/product-images/sunoa-sunscreen-face-cream-spf50-plus.jpeg',
+      '/images/product-images/sunoa-sunscreen-face-cream-spf50-plus-second.jpeg'
     ],
     category: 'new-arrivals',
     shopierLink: '', 
@@ -45,7 +46,8 @@ export const products: Product[] = [
     description: 'Yüz cildi için ferahlatıcı, makyaj üzerine uygulanabilen sprey formülü.',
     price: 580,
     images: [
-      '/images/product-images/sunoa-sunscreen-face-mist-spf30.jpeg'
+      '/images/product-images/sunoa-sunscreen-face-mist-spf30.jpeg',
+      '/images/product-images/sunoa-sunscreen-face-mist-spf30-second.jpeg'
     ],
     category: 'best-sellers',
     shopierLink: '',
@@ -58,7 +60,8 @@ export const products: Product[] = [
     description: 'Kolay uygulanan sprey formülüyle tüm vücut için etkili güneş koruması.',
     price: 450,
     images: [
-      '/images/product-images/sunoa-sunscreen-body-spray-spf30.jpeg'
+      '/images/product-images/sunoa-sunscreen-body-spray-spf30.jpeg',
+      '/images/product-images/sunoa-sunscreen-body-spray-spf30-second.jpeg'
     ],
     category: 'trending',
     shopierLink: '',
@@ -71,7 +74,8 @@ export const products: Product[] = [
     description: 'Hassas çocuk cildi için özel formüllü, suya dayanıklı güneş koruyucu.',
     price: 380,
     images: [
-      '/images/product-images/sunoa-sunscreen-for-kids-spf50-plus.jpeg'
+      '/images/product-images/sunoa-sunscreen-for-kids-spf50-plus.jpeg',
+      '/images/product-images/sunoa-sunscreen-for-kids-spf50-plus-second.jpeg'
     ],
     category: 'best-sellers',
     shopierLink: '',
@@ -85,7 +89,8 @@ export const products: Product[] = [
     description: 'Güneş sonrası cildi yatıştıran ve nemlendiren bakım losyonu.',
     price: 420,
     images: [
-      '/images/product-images/sunoa-after-run-soothing-lotion.jpeg'
+      '/images/product-images/sunoa-after-run-soothing-lotion.jpeg',
+      '/images/product-images/sunoa-after-run-soothing-lotion-second.jpeg'
     ],
     category: 'new-arrivals',
     shopierLink: '',
@@ -99,7 +104,8 @@ export const products: Product[] = [
     description: 'Hafif ton veren, makyaj bazı olarak da kullanılabilen güneş kremi.',
     price: 620,
     images: [
-      '/images/product-images/sunoa-tinted-sunscreen-spf50.jpeg'
+      '/images/product-images/sunoa-tinted-sunscreen-spf50.jpeg',
+      '/images/product-images/sunoa-tinted-sunscreen-spf50-second.jpeg'
     ],
     category: 'trending',
     shopierLink: '',
@@ -112,7 +118,8 @@ export const products: Product[] = [
     description: 'Eşsiz bronzlaşma etkisi sunan, cildi besleyen güneş yağı.',
     price: 550,
     images: [
-      '/images/product-images/sunoa-bronzlastirici-gunes-yagi-spf15.jpeg'
+      '/images/product-images/sunoa-bronzlastirici-gunes-yagi-spf15.jpeg',
+      '/images/product-images/sunoa-bronzlastirici-gunes-yagi-spf15-second.jpeg'
     ],
     category: 'best-sellers',
     shopierLink: '',
@@ -125,7 +132,8 @@ export const products: Product[] = [
     description: 'Dudakları güneşin zararlı etkilerinden koruyan, nemlendirici balm.',
     price: 180,
     images: [
-      '/images/product-images/sunoa-lip-protect-balm-spf30.jpeg'
+      '/images/product-images/sunoa-lip-protect-balm-spf30.jpeg',
+      '/images/product-images/sunoa-lip-protect-balm-spf30-second.jpeg'
     ],
     category: 'trending',
     shopierLink: '',

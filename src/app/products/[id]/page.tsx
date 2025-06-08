@@ -16,8 +16,13 @@ interface PageProps {
   };
 }
 
+'use client';
+
+import { useState } from 'react';
+
 export default function ProductPage({ params }: PageProps) {
   const product = getProductById(params.id);
+  const [activeImage, setActiveImage] = useState(0);
 
   if (!product) {
     notFound();
@@ -30,26 +35,56 @@ export default function ProductPage({ params }: PageProps) {
         <div className="space-y-4">
           <div className="aspect-square relative overflow-hidden rounded-lg bg-gray-100">
             <Image
-              src={product.images[0]}
+              src={product.images[activeImage]}
               alt={product.name}
               fill
               className="object-cover"
               priority
             />
+            
+            {product.images.length > 1 && (
+              <>
+                <button 
+                  onClick={() => setActiveImage((prev) => (prev - 1 + product.images.length) % product.images.length)}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 z-10"
+                  aria-label="Önceki görsel"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+                <button 
+                  onClick={() => setActiveImage((prev) => (prev + 1) % product.images.length)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 z-10"
+                  aria-label="Sonraki görsel"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+              </>
+            )}
           </div>
-          {product.images.slice(1).map((image, index) => (
-            <div
-              key={index}
-              className="aspect-square relative overflow-hidden rounded-lg bg-gray-100"
-            >
-              <Image
-                src={image}
-                alt={`${product.name} - View ${index + 2}`}
-                fill
-                className="object-cover"
-              />
+          
+          {/* Thumbnail Images */}
+          {product.images.length > 1 && (
+            <div className="flex space-x-2 overflow-x-auto">
+              {product.images.map((image, index) => (
+                <div
+                  key={index}
+                  className={`relative aspect-square w-20 cursor-pointer rounded-md overflow-hidden ${activeImage === index ? 'ring-2 ring-black' : ''}`}
+                  onClick={() => setActiveImage(index)}
+                >
+                  <Image
+                    src={image}
+                    alt={`${product.name} - Thumbnail ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
 
         {/* Product Info */}
