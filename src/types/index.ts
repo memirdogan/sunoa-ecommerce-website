@@ -6,9 +6,13 @@ export interface Product {
   price: number;
   images: string[];
   category: string;
-  shopierLink: string;
   featured?: boolean;
   new?: boolean;
+  features?: string[];
+  usage?: string;
+  ingredients?: string;
+  size?: string;
+  stock?: number;
 }
 
 export type ProductCategory = 'all' | 'new-arrivals' | 'best-sellers' | 'trending';

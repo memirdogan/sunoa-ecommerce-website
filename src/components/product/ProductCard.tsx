@@ -79,13 +79,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
         <p className="text-sm font-medium text-gray-900">{product.price} TL</p>
       </div>
-      <button
+      <Link
+        href={`/products/${product.id}`}
         className="mt-4 block w-full bg-black text-white text-center py-2 px-4 rounded-md hover:bg-gray-800 transition-colors"
       >
-        Satın Al
-      </button>
+        Ürünü İncele
+      </Link>
     </div>
   );
 };
 
-export default ProductCard; 
+export default ProductCard;

@@ -14,6 +14,18 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // ESLint hatalarını build sırasında görmezden gel
   },
+  // Geliştirme modunda hataları görmezden gel
+  onDemandEntries: {
+    // period (in ms) where the server will keep pages in the buffer
+    maxInactiveAge: 25 * 1000,
+    // number of pages that should be kept simultaneously without being disposed
+    pagesBufferLength: 4,
+  },
+  // Statik export için gerekli
+  experimental: {
+    // Bu ayar, metadataBase ile ilgili uyarıyı bastırır
+    appDocumentPreloading: false,
+  },
 };
 
 module.exports = nextConfig;
