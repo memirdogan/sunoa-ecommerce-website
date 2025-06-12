@@ -1,155 +1,118 @@
-# Sunoa
+# 🌞 Sunoa - Premium Güneş Kremi E-Ticaret Sitesi
 
-Sunoa markası için geliştirilen premium güneş kremleri e-ticaret vitrini.
+Sunoa, lüks ama ulaşılabilir güneş kremi ürünlerini tanıtmak ve satmak amacıyla geliştirilmiş modern bir e-ticaret platformudur. Next.js App Router altyapısı ve statik site üretimi (SSG) ile yüksek performanslı, SEO dostu ve CDN uyumlu bir deneyim sunar.
 
-## Kurulum ve Geliştirme Rehberi
+---
 
-Bu rehber, projeyi yerel ortamınızda çalıştırmak ve geliştirmek için gerekli adımları içerir.
+## 🚀 Teknoloji Yığını
 
-### Ön Koşullar
+| Teknoloji    | Sürüm     |
+|--------------|-----------|
+| Next.js      | 15.2.1    |
+| React        | 19.0.0    |
+| TypeScript   | 5.x       |
+| Tailwind CSS | 3.3.0     |
+| PostCSS      | 8.4.31    |
 
-- Node.js (v18 veya üzeri)
-- npm (v9 veya üzeri)
+---
+
+## 🧱 Sistem Mimarisi
+
+Proje JAMstack yaklaşımıyla geliştirilmiş olup, bileşen bazlı yapı şu şekilde düzenlenmiştir:
+
+- **Veri Katmanı** → `src/lib/products.ts`
+- **Sayfalar** → `src/app/` klasörü içinde yer alır
+- **Alışveriş Sepeti** → `src/lib/cartContext.tsx` (React Context ile)
+- **Arayüz Bileşenleri** → `src/components/`
+
+---
+
+## 📦 Temel Özellikler
+
+### Ürün Verisi (src/lib/products.ts)
+
+- `getFeaturedProducts()` – Öne çıkan ürünler
+- `getNewArrivals()` – Yeni eklenen ürünler
+- `getProductsByCategory()` – Kategoriye göre filtreleme
+- `getProductById()` – Ürün detayı
+
+### Sepet Yönetimi (src/lib/cartContext.tsx)
+
+- Global state
+- Local storage entegrasyonu
+- `addToCart()`, `removeFromCart()`, `useCart()`
+
+---
+
+## 🛠 Kurulum ve Geliştirme
+
+### Gereksinimler
+
+- Node.js (v18+)
+- npm (v9+)
 
 ### Kurulum
 
-1. Repo'yu klonlayın:
-   ```bash
-   git clone https://github.com/kullaniciadi/sunoa.git
-   cd sunoa
-   ```
+```bash
+git clone https://github.com/kullaniciadi/sunoa.git
+cd sunoa
+npm install --legacy-peer-deps
+````
 
-2. Bağımlılıkları yükleyin:
-   ```bash
-   npm install --legacy-peer-deps
-   ```
-   > **Not:** `--legacy-peer-deps` bayrağı, React 19 ve Next.js 15 arasındaki bağımlılık uyumsuzluklarını çözmek için gereklidir.
-
-### Geliştirme
-
-Geliştirme sunucusunu başlatmak için:
+### Geliştirme Sunucusu
 
 ```bash
 npm run dev
 ```
 
-Uygulama [http://localhost:3000](http://localhost:3000) adresinde çalışacaktır.
+Tarayıcıda: `http://localhost:3000`
 
 ### Build Alma
-
-Projeyi statik HTML olarak build etmek için:
 
 ```bash
 npm run build
 ```
 
-Bu komut, `out` klasöründe statik dosyalar oluşturacaktır.
-
-### Statik Dosyaları Önizleme
-
-Build edilen statik dosyaları yerel ortamda test etmek için:
+### Statik Dosyaları Test Etme
 
 ```bash
 npx serve out
 ```
 
-### Proje Yapısı
+---
+
+## 📁 Proje Yapısı
 
 ```
 sunoa/
-├── public/             # Statik dosyalar (resimler, fontlar)
-│   ├── images/         # Resimler
-│   └── fonts/          # Fontlar
-├── src/                # Kaynak kodları
-│   ├── app/            # Next.js App Router sayfaları
-│   ├── components/     # React bileşenleri
-│   ├── lib/            # Yardımcı fonksiyonlar ve veriler
-│   └── types/          # TypeScript tip tanımlamaları
-├── .gitignore          # Git tarafından yok sayılacak dosyalar
-├── next.config.js      # Next.js yapılandırması
-├── package.json        # Proje bağımlılıkları ve scriptleri
-└── README.md           # Proje dokümantasyonu
+├── public/               # Statik varlıklar
+├── src/
+│   ├── app/              # Sayfalar (App Router)
+│   ├── components/       # UI bileşenleri
+│   ├── lib/              # Veri ve state yönetimi
+│   └── types/            # TS tipleri
+├── package.json
+├── next.config.js
+└── README.md
 ```
 
-### Önemli Dosyalar
+## 🧩 Sorun Giderme
 
-- **src/lib/products.ts**: Ürün verileri bu dosyada tanımlanmıştır.
-- **src/app/page.tsx**: Ana sayfa bileşeni.
-- **src/app/products/page.tsx**: Ürünler sayfası bileşeni.
-- **src/components/layout/Header.tsx**: Üst menü bileşeni.
-- **src/components/layout/Footer.tsx**: Alt menü bileşeni.
+| Sorun              | Çözüm                                                                                        |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| Bağımlılık hatası  | `npm install --legacy-peer-deps`                                                             |
+| Build hatası       | `next.config.js` → `typescript.ignoreBuildErrors = true`, `eslint.ignoreDuringBuilds = true` |
+| Görsel yüklenmiyor | `images.unoptimized = true`                                                                  |
 
-### GitHub Pages'e Dağıtım
+---
 
-1. `next.config.js` dosyasını güncelleyin:
-   ```javascript
-   basePath: '/sunoa',
-   assetPrefix: '/sunoa',
-   ```
+## ✨ Katkı ve Geliştirme
 
-2. GitHub Actions workflow dosyasını oluşturun (`.github/workflows/deploy.yml`):
-   ```yaml
-   name: Deploy to GitHub Pages
+Bu proje öğrenim amaçlı geliştirilmiştir. PR ve önerilere açıktır. 🧑‍💻
 
-   on:
-     push:
-       branches: [ main ]
+---
 
-   jobs:
-     build-and-deploy:
-       runs-on: ubuntu-latest
-       steps:
-         - name: Checkout
-           uses: actions/checkout@v3
+## 📜 Lisans
 
-         - name: Setup Node.js
-           uses: actions/setup-node@v3
-           with:
-             node-version: '18'
-
-         - name: Install dependencies
-           run: npm install --legacy-peer-deps
-
-         - name: Build
-           run: npm run build
-
-         - name: Add .nojekyll file
-           run: touch out/.nojekyll
-
-         - name: Deploy
-           uses: JamesIves/github-pages-deploy-action@v4
-           with:
-             folder: out
-             branch: gh-pages
-   ```
-
-3. GitHub repo'nuzun "Settings > Pages" bölümünden GitHub Pages'i etkinleştirin.
-
-### AWS S3'e Dağıtım
-
-1. AWS CLI'yi yapılandırın:
-   ```bash
-   aws configure
-   ```
-
-2. S3 bucket oluşturun:
-   ```bash
-   aws s3api create-bucket --bucket sunoa-website --region eu-central-1 --create-bucket-configuration LocationConstraint=eu-central-1
-   ```
-
-3. Bucket'ı statik web sitesi olarak yapılandırın:
-   ```bash
-   aws s3 website s3://sunoa-website --index-document index.html --error-document index.html
-   ```
-
-4. Dosyaları yükleyin:
-   ```bash
-   aws s3 sync out/ s3://sunoa-website --delete
-   ```
-
-### Sorun Giderme
-
-- **Bağımlılık Hataları**: `npm install --legacy-peer-deps` komutunu kullanın.
-- **Build Hataları**: `next.config.js` dosyasında `typescript.ignoreBuildErrors` ve `eslint.ignoreDuringBuilds` ayarlarını `true` olarak ayarlayın.
-- **Görsel Yükleme Sorunları**: `next.config.js` dosyasında `images.unoptimized` ayarını `true` olarak ayarlayın.
+MIT License © 2025 Musa Emir Doğan
 
